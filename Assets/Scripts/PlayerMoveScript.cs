@@ -8,12 +8,15 @@ public class PlayerMoveScript : MonoBehaviour {
     public bool CanJump = false;
     public float MaxSpeed;
     private bool isArrowButtonClicked = false;
+	public AudioClip playSound;
+	private AudioSource source;
 
     Animator animator;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+		source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,6 +56,7 @@ public class PlayerMoveScript : MonoBehaviour {
         } 
         if (Input.GetKeyDown(KeyCode.Space) && CanJump)
         {
+			source.PlayOneShot(playSound);
             GetComponent<Rigidbody>().AddForce(new Vector3(0, JumpPower, 0));
         }
         CanJump = false;

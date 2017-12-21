@@ -7,10 +7,14 @@ public class EjectScript : MonoBehaviour
 
     private bool CanTake = false;
     public int Power;
+	public AudioClip playSound;
+	private AudioSource source;
 
     // Use this for initialization
     void Start()
     {
+
+		source = GetComponent<AudioSource>();
 
     }
 
@@ -20,6 +24,7 @@ public class EjectScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightShift) && CanTake)
         {
+			source.PlayOneShot(playSound);
             GetComponent<Rigidbody>().isKinematic = true;
             transform.position = GameObject.Find("EjectPosition").transform.position;
             transform.parent = GameObject.Find("EjectPosition").transform;
@@ -28,7 +33,9 @@ public class EjectScript : MonoBehaviour
         {
 
             Launch();
+
         }
+
 
     }
 
@@ -45,7 +52,6 @@ public class EjectScript : MonoBehaviour
 
         if (collider.gameObject.tag == "Player")
         {
-            Debug.Log("ramasse");
             CanTake = true;
         }
     }
