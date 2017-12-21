@@ -11,6 +11,10 @@ public class FallingPlatformScript : MonoBehaviour
         {
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<Rigidbody>().mass = 10f;
+            GetComponent<MeshRenderer>().enabled = true;
+
+            other.GetComponent<Rigidbody>().AddForce(-other.transform.right * 300);
+            Destroy(other.gameObject);
         }
     }
 }

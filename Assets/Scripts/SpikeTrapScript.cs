@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpikeTrapScript : MonoBehaviour {
-    public bool IsOpen = false;
+    public bool IsTrapActivated = false;
     private Vector3 StartPosition;
     private Vector3 EndPosition;
-
-    //public Color StColor, EndColor, CurrentColor;
-
 
     private float timer = 0;
 
     void Start()
     {
         StartPosition = transform.localPosition;
-        EndPosition = StartPosition + new Vector3(0, 2f, 0);
+        EndPosition = StartPosition + new Vector3(0, 5f, 0);
 
     }
 
@@ -23,7 +20,7 @@ public class SpikeTrapScript : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            IsOpen = true;
+            IsTrapActivated = true;
             timer = 0;
             Destroy(other.gameObject);
         }
@@ -32,10 +29,8 @@ public class SpikeTrapScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (IsOpen)
+        if (IsTrapActivated)
             timer += 4*Time.deltaTime;
-        else
-            timer -= Time.deltaTime;
 
         transform.localPosition = Vector3.Lerp(StartPosition, EndPosition, timer);
     }

@@ -21,7 +21,7 @@ public class TrapRockScript : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.RightShift) && CanTake)
 		{
 			source.PlayOneShot(playSound);
-			Destroy (Player);
+			Destroy (Player.gameObject);
 		}
 		
 	}
