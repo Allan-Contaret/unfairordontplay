@@ -6,13 +6,6 @@ public class SpawnPointScript : CheckpointScript {
 
 	// Use this for initialization
 	void Start () {
-
         transform.position = GetActiveCheckPointPosition();
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

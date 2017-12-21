@@ -1258,7 +1258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125605000523598}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 73, y: 5, z: 0}
+  m_LocalPosition: {x: 0.36446428, y: 5, z: 1.8349888}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4661389507632718}
@@ -1688,11 +1688,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1125605000523598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c2e8669570d7848bf8554ab83d5c75, type: 3}
+  m_Script: {fileID: 11500000, guid: dccbd77392985b34180abab65c3ce76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsCheckpointActivated: 0
-  Flag: {fileID: 1349423064944200, guid: 42562a121caa93242898dcdd811d7e5f, type: 2}
+  Flag: {fileID: 0}
 --- !u!114 &114922599688621908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1708,6 +1708,7 @@ MonoBehaviour:
   JumpPower: 300
   CanJump: 0
   MaxSpeed: 25
+  playSound: {fileID: 0}
 --- !u!124 &124987665357797052
 Behaviour:
   m_ObjectHideFlags: 1
