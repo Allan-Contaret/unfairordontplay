@@ -9,7 +9,10 @@ public class TrapSpikesScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
-            Player.GetComponent<Rigidbody>().AddForce(-PlayersPosition.forward * 2000);
+        if (other.tag == "Player")
+        {
+            Player.GetComponent<Rigidbody>().AddForce(PlayersPosition.right * 250);
+            Player.GetComponent<Rigidbody>().AddForce(PlayersPosition.up * 250);
+        }
     }
 }

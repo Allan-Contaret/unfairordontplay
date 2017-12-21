@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikesScript : MonoBehaviour {
+public class SpikeTrapScript : MonoBehaviour {
     public bool IsOpen = false;
     private Vector3 StartPosition;
     private Vector3 EndPosition;
