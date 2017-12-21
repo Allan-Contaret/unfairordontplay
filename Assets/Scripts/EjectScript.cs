@@ -6,7 +6,6 @@ public class EjectScript : MonoBehaviour
 {
 
     private bool CanTake = false;
-    private GameObject Eject;
     public int Power;
 
     // Use this for initialization
@@ -19,13 +18,13 @@ public class EjectScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.RightShift) && CanTake && Eject != null)
+        if (Input.GetKeyDown(KeyCode.RightShift) && CanTake)
         {
-            Eject.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            Eject.transform.position = GameObject.Find("EjectPosition").transform.position;
-            Eject.gameObject.transform.parent = GameObject.Find("EjectPosition").transform;
+            GetComponent<Rigidbody>().isKinematic = true;
+            transform.position = GameObject.Find("EjectPosition").transform.position;
+            transform.parent = GameObject.Find("EjectPosition").transform;
         }
-        if(Input.GetButtonDown("Fire1") && Eject != null)
+		if(Input.GetButtonDown("Fire1") && CanTake)
         {
 
             Launch();
@@ -36,17 +35,17 @@ public class EjectScript : MonoBehaviour
     void Launch()
     {
 
-        Eject.gameObject.transform.parent = null;
-        Eject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        Eject.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward * Power));
+        transform.parent = null;
+        GetComponent<Rigidbody>().isKinematic = false;
+		GetComponent<Rigidbody>().AddForce(transform.TransformDirection(-Vector3.right * Power));
     }
-    void OnTriggerEnter(Collider collider)
+   
+	void OnTriggerEnter(Collider collider)
     {
 
-        if (collider.gameObject.tag == "Rock")
+        if (collider.gameObject.tag == "Player")
         {
             Debug.Log("ramasse");
-            Eject = collider.gameObject;
             CanTake = true;
         }
     }
@@ -54,9 +53,8 @@ public class EjectScript : MonoBehaviour
     void OnTriggerExit(Collider collider)
     {
 
-        if (collider.gameObject.tag == "Rock")
+        if (collider.gameObject.tag == "Player")
         {
-            Eject = null;
             CanTake = false;
         }
     }
