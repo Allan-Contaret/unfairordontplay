@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapSpikesScript : MonoBehaviour
+public class EjectSpikeScript : MonoBehaviour
 {
     public GameObject Player;
     public Transform PlayersPosition;

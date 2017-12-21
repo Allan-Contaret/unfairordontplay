@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 54666404227376528}
   - component: {fileID: 65018743289629656}
   - component: {fileID: 65206305602136320}
-  - component: {fileID: 114614291790231934}
+  - component: {fileID: 114973688704231638}
   m_Layer: 0
   m_Name: EjectableTrap
   m_TagString: Trap
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498282246724522}
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 69.14, y: 2.45, z: -3.46}
+  m_LocalPosition: {x: 62.08, y: 3.09, z: -0.59}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4877059684041008}
@@ -226,7 +226,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4, z: 1}
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &114614291790231934
+--- !u!114 &114973688704231638
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498282246724522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dedd3116dd5e78840b0ef0bd007ab73d, type: 3}
+  m_Script: {fileID: 11500000, guid: dd6271ac3608ac946bf7168e6d0a7a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
