@@ -9,7 +9,6 @@ public class CheckpointScript : MonoBehaviour
 
     public bool IsCheckpointActivated = false;
     public static GameObject[] CheckPointsList;
-    public static CheckpointScript instance;
 
     private float timer = 0;
     public GameObject Flag;
@@ -17,7 +16,10 @@ public class CheckpointScript : MonoBehaviour
     public static Vector3 GetActiveCheckPointPosition()
     {
         // If player die without activate any checkpoint, we will return a default position
-        Vector3 result = new Vector3(73, 5, 0);
+        Vector3 result = new Vector3(78f, 5f, 0f);
+
+        if (CheckPointsList == null)
+            result = new Vector3(78f, 5f, 0f);
 
         if (CheckPointsList != null)
         {
@@ -46,21 +48,7 @@ public class CheckpointScript : MonoBehaviour
         IsCheckpointActivated = true;
     }
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this);
-
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            DestroyObject(gameObject);
-        }
-        }
-
-        void Start()
+    void Start()
     {
         // We search all the checkpoints in the current scene
         CheckPointsList = GameObject.FindGameObjectsWithTag("Checkpoint");
@@ -75,6 +63,12 @@ public class CheckpointScript : MonoBehaviour
             timer += 4 * Time.deltaTime;
 
         Flag.transform.localPosition = Vector3.Lerp(StartPosition, EndPosition, timer);
+
+        PlayerPrefs.SetFloat("CheckpointX", GetActiveCheckPointPosition().x);
+        PlayerPrefs.SetFloat("CheckpointY", GetActiveCheckPointPosition().y);
+        PlayerPrefs.SetFloat("CheckpointZ", GetActiveCheckPointPosition().z);
+
+        Debug.Log(GetActiveCheckPointPosition().x);
     }
 
     void OnTriggerEnter(Collider other)

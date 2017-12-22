@@ -12,7 +12,7 @@ public class SpikeTrapScript : MonoBehaviour {
     void Start()
     {
         StartPosition = transform.localPosition;
-        EndPosition = StartPosition + new Vector3(0, 5f, 0);
+        EndPosition = StartPosition + new Vector3(0, 8f, 0);
 
     }
 
@@ -22,7 +22,7 @@ public class SpikeTrapScript : MonoBehaviour {
         {
             IsTrapActivated = true;
             timer = 0;
-            Destroy(other.gameObject);
+            Destroy(other.gameObject, 1);
         }
     }
 

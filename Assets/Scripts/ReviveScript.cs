@@ -7,7 +7,7 @@ public class ReviveScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(!GameObject.FindGameObjectWithTag("Player"))
+		if(!GameObject.Find("SJ001_run"))
         {
             GameObject Player = Instantiate<GameObject>(PrefabPlayer);
         }

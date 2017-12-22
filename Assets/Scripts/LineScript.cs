@@ -8,6 +8,7 @@ public class LineScript : MonoBehaviour {
 	private Text FinalText;
 	public AudioClip playSound;
 	private AudioSource source;
+    public GameObject Firework;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,8 @@ public class LineScript : MonoBehaviour {
 
 		source.PlayOneShot(playSound);
 		FinalText.text = "Victoire!";
+        Firework.SetActive(true);
+
 	
 
 

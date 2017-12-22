@@ -14,7 +14,7 @@ public class FallingPlatformScript : MonoBehaviour
             GetComponent<MeshRenderer>().enabled = true;
 
             other.GetComponent<Rigidbody>().AddForce(-other.transform.right * 300);
-            Destroy(other.gameObject);
+            Destroy(other.gameObject,  1);
         }
     }
 }

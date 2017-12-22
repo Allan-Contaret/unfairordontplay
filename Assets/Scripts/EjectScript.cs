@@ -29,7 +29,7 @@ public class EjectScript : MonoBehaviour
             transform.position = GameObject.Find("EjectPosition").transform.position;
             transform.parent = GameObject.Find("EjectPosition").transform;
         }
-		if(Input.GetButtonDown("Fire1") && CanTake)
+		if(Input.GetKeyDown(KeyCode.RightControl) && CanTake)
         {
 
             Launch();

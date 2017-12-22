@@ -8,7 +8,7 @@ public class PlatformDownScript : MonoBehaviour {
 	{
 		if (other.tag == "Player") {
 			GetComponent<Rigidbody> ().useGravity = true;
-			GetComponent<Rigidbody> ().mass = 5f;
+			GetComponent<Rigidbody> ().mass = 50f;
 		}
 	}
 }
