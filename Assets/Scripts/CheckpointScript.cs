@@ -9,6 +9,7 @@ public class CheckpointScript : MonoBehaviour
 
     public bool IsCheckpointActivated = false;
     public static GameObject[] CheckPointsList;
+    public static CheckpointScript instance;
 
     private float timer = 0;
     public GameObject Flag;
@@ -45,7 +46,21 @@ public class CheckpointScript : MonoBehaviour
         IsCheckpointActivated = true;
     }
 
-    void Start()
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            DestroyObject(gameObject);
+        }
+        }
+
+        void Start()
     {
         // We search all the checkpoints in the current scene
         CheckPointsList = GameObject.FindGameObjectsWithTag("Checkpoint");
